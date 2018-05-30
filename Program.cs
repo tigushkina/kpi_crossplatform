@@ -1,22 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using MyLib;
 
-namespace WindowsSuffixCalculator
+namespace ConsoleSuffixCalculator
 {
-    static class Program
+    class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        /// Виклик бібліотечного метода 
         /// </summary>
-        [STAThread]
-        static void Main()
+       
+        static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form());
+          
+            Console.WriteLine("Введіть перше значення");
+            String s1 = Console.ReadLine();
+            Console.WriteLine("Введіть значення для порівняння");
+            String s2 = Console.ReadLine();
+                        
+            SuffixCalculator suffix = new MyLib.SuffixCalculator();
+            var result = suffix.RunSuffixCalculator(s1,s2);
+            
+            Console.WriteLine("common suffix = {0}", result);
+            Console.ReadKey();
+
+
         }
     }
 }
